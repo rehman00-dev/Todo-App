@@ -1,0 +1,156 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars from animated elements */
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.85); /* Black combination */
+    backdrop-filter: blur(10px); /* Blur effect peeche ke liye */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Gehra shadow */
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#todo-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#add-btn {
+    padding: 10px 20px;
+    background-color: #90EE90; /* Light Green */
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#add-btn:hover {
+    background-color: #3CB371; /* Darker Light Green */
+}
+
+#delete-all-btn {
+    padding: 10px 20px;
+    background-color: #B22222; /* Dark Red */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+#delete-all-btn:hover {
+    background-color: #8B0000; /* Darker Red */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 150px; /* 3 tasks jitni height */
+    overflow-y: auto;  /* Scrollbar dikhane ke liye */
+}
+
+li {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+li.completed span {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.delete-btn {
+    background-color: #B22222; /* Dark Red */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #8B0000; /* Darker Red */
+}
+
+.edit-btn {
+    background-color: #28a745; /* Green */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: #218838; /* Darker Green */
+}
+
+.button-wrapper {
+    display: flex;
+    gap: 5px; /* Space between buttons */
+}
+
+/* --- Live Background: Falling Stars --- */
+.star {
+    position: fixed;
+    /* Gradient tail: transparent top to white bottom */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), white);
+    width: 2px; /* Patli line */
+    /* Height JS se set hogi */
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5), 0 0 8px #007bff;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    z-index: -1; /* Place stars behind the content */
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-100px); /* Start further up */
+    }
+    to {
+        transform: translateY(120vh);
+    }
+}
+
+@keyframes fall-diagonal {
+    from {
+        /* Rotate -45deg for diagonal (Top-Left to Bottom-Right) */
+        transform: rotate(-45deg) translateY(-100px); /* Start further up */
+    }
+    to {
+        transform: rotate(-45deg) translateY(120vh);
+    }
+}
